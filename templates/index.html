@@ -203,7 +203,7 @@
         <!--
             Tombol untuk mengunduh file sistem (jika tersedia di folder static)
         -->
-        <a href="{{ url_for('download_file', filename='file.rar') }}" class="download-btn" download>Unduh Sistem Pengambilan Keputusan</a>
+        <a href="{{ url_for('static', filename='file.rar') }}" class="download-btn" download>Unduh Sistem Pengambilan Keputusan</a>
         <!--
             Form utama untuk filter pencarian laptop
             Setiap input akan dikirim ke route '/recommend' dengan metode POST
