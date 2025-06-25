@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekomendasi Laptop</title>
+    <!--
+        Menggunakan Google Fonts untuk tampilan font yang modern dan profesional
+    -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        /*
+            CSS untuk mempercantik tampilan halaman, membuat layout responsif dan modern
+        */
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: linear-gradient(120deg, #e0e7ff 0%, #f8fafc 100%);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 700px;
+            margin: 48px auto;
+            background: #fff;
+            padding: 36px 44px 32px 44px;
+            border-radius: 18px;
+            box-shadow: 0 6px 32px rgba(60, 72, 100, 0.13);
+            position: relative;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+        .header-icon {
+            width: 38px;
+            height: 38px;
+            background: #6366f1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.6em;
+            box-shadow: 0 2px 8px #6366f133;
+        }
+        h1 {
+            font-size: 2.1em;
+            font-weight: 700;
+            color: #3730a3;
+            margin: 0;
+        }
+        .desc {
+            text-align: center;
+            color: #555;
+            margin-bottom: 28px;
+            font-size: 1.08em;
+        }
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 22px;
+        }
+        .form-group {
+            flex: 1 1 45%;
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 7px;
+            font-weight: 600;
+            color: #6366f1;
+            letter-spacing: 0.01em;
+        }
+        select, input[type="number"] {
+            padding: 9px 10px;
+            border-radius: 6px;
+            border: 1.5px solid #c7d2fe;
+            background: #f1f5f9;
+            font-size: 1em;
+            transition: border 0.2s;
+        }
+        select:focus, input[type="number"]:focus {
+            border: 1.5px solid #6366f1;
+            outline: none;
+            background: #fff;
+        }
+        .download-btn {
+            display: inline-block;
+            margin: 0 0 18px 0;
+            padding: 11px 32px;
+            background: linear-gradient(90deg, #22d3ee 60%, #38bdf8 100%);
+            color: #fff;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.08em;
+            box-shadow: 0 2px 8px #38bdf833;
+            border: none;
+            transition: background 0.2s, transform 0.15s;
+        }
+        .download-btn:hover {
+            background: linear-gradient(90deg, #0ea5e9 60%, #06b6d4 100%);
+            transform: translateY(-2px) scale(1.03);
+        }
+        .form-actions {
+            width: 100%;
+            text-align: center;
+            margin-top: 24px;
+        }
+        .form-actions-top {
+            margin-bottom: 18px;
+            margin-top: 0;
+            position: sticky;
+            top: 0;
+            left: 0;
+            background: #fff;
+            z-index: 10;
+            padding: 16px 0 10px 0;
+            box-shadow: 0 2px 16px #6366f122;
+        }
+        button, .filter-btn {
+            padding: 12px 38px;
+            background: linear-gradient(90deg, #6366f1 60%, #818cf8 100%);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1em;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 2px 8px #6366f133;
+            transition: background 0.2s, transform 0.15s;
+            margin: 0 8px;
+        }
+        button:hover, .filter-btn:hover {
+            background: linear-gradient(90deg, #4f46e5 60%, #6366f1 100%);
+            transform: translateY(-2px) scale(1.03);
+        }
+        .filter-btn {
+            background: linear-gradient(90deg, #22d3ee 60%, #38bdf8 100%);
+            color: #fff;
+        }
+        .filter-btn:hover {
+            background: linear-gradient(90deg, #0ea5e9 60%, #06b6d4 100%);
+        }
+        @media (max-width: 600px) {
+            .form-actions {
+                position: static;
+                width: 100%;
+                background: none;
+                box-shadow: none;
+                padding: 0;
+            }
+            .form-actions-top {
+                position: sticky;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                background: #fff;
+                box-shadow: 0 2px 16px #6366f122;
+                padding: 10px 0 10px 0;
+                margin-left: -5vw;
+                margin-right: -5vw;
+            }
+            button, .filter-btn {
+                width: 90vw;
+                max-width: 400px;
+                margin: 0 auto 0 auto;
+                display: block;
+                font-size: 1.08em;
+            }
+        }
+        @media (max-width: 600px) {
+            .container { padding: 15px 5px; }
+            form { flex-direction: column; gap: 12px; }
+            .form-group { flex: 1 1 100%; }
+            h1 { font-size: 1.3em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!--
+            Header aplikasi: berisi ikon dan judul utama
+        -->
+        <div class="header">
+            <div class="header-icon">💻</div>
+            <h1>Rekomendasi Laptop</h1>
+        </div>
+        <br>
+        <!--
+            Deskripsi aplikasi dan petunjuk penggunaan filter
+        -->
+        <div class="desc">
+            Selamat datang di Website Sistem Pengambilan Keputusan dengan metode Simple Additive Weighting (SAW)
+            <br>
+            <br>
+            <br>
+            Anda dapat mengosongkan filter yang tidak ingin digunakan.
+        </div>
+        <!--
+            Tombol untuk mengunduh file sistem (jika tersedia di folder static)
+        -->
+        <a href="{{ url_for('static', filename='file.rar') }}" class="download-btn" download>Unduh Sistem Pengambilan Keputusan</a>
+        <!--
+            Form utama untuk filter pencarian laptop
+            Setiap input akan dikirim ke route '/recommend' dengan metode POST
+        -->
+        <form method="POST" action="/recommend">
+            <!--
+                Filter berdasarkan merek laptop
+                Pilihan diisi dari variabel brands (list merek dari backend)
+            -->
+            <div class="form-group">
+                <label for="brand">Merek</label>
+                <select name="brand" id="brand">
+                    {% for b in brands %}
+                        <option value="{{ b }}" {% if filters.brand == b %}selected{% endif %}>{{ b }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <!--
+                Filter harga minimum (dalam juta rupiah)
+            -->
+            <div class="form-group">
+                <label for="min_price">Harga Minimum (juta)</label>
+                <input type="number" step="0.1" min="0" max="100" name="min_price" id="min_price" value="{{ filters.min_price }}" placeholder="0">
+            </div>
+            <!--
+                Filter harga maksimum (dalam juta rupiah)
+            -->
+            <div class="form-group">
+                <label for="max_price">Harga Maksimum (juta)</label>
+                <input type="number" step="0.1" min="0" max="100" name="max_price" id="max_price" value="{{ filters.max_price }}" placeholder="100">
+            </div>
+            <!--
+                Filter RAM (dalam GB)
+                Pilihan diisi dari variabel ram_sizes
+            -->
+            <div class="form-group">
+                <label for="ram">RAM (GB)</label>
+                <select name="ram" id="ram">
+                    {% for r in ram_sizes %}
+                        <option value="{{ r }}" {% if filters.ram == r %}selected{% endif %}>{{ r }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <!--
+                Filter SSD (dalam GB)
+                Pilihan diisi dari variabel ssd_sizes
+            -->
+            <div class="form-group">
+                <label for="ssd">SSD (GB)</label>
+                <select name="ssd" id="ssd">
+                    {% for s in ssd_sizes %}
+                        <option value="{{ s }}" {% if filters.ssd == s %}selected{% endif %}>{{ s }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <!--
+                Filter ukuran layar (dalam inch)
+                Pilihan diisi dari variabel screen_sizes
+            -->
+            <div class="form-group">
+                <label for="screen_size">Ukuran Layar (inch)</label>
+                <select name="screen_size" id="screen_size">
+                    {% for sz in screen_sizes %}
+                        <option value="{{ sz }}" {% if filters.screen_size == sz %}selected{% endif %}>{{ sz }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <!--
+                Filter jenis prosesor (Intel/AMD/Lainnya)
+                Pilihan diisi dari variabel processor_types
+            -->
+            <div class="form-group">
+                <label for="processor_type">Jenis Prosesor</label>
+                <select name="processor_type" id="processor_type">
+                    {% for pt in processor_types %}
+                        <option value="{{ pt }}" {% if filters.processor_type == pt %}selected{% endif %}>{{ pt }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <!--
+                Filter kapasitas baterai (dalam Wh)
+                Pilihan diisi dari variabel battery_capacities
+            -->
+            <div class="form-group">
+                <label for="battery">Kapasitas Baterai (Wh)</label>
+                <select name="battery" id="battery">
+                    {% for b in battery_capacities %}
+                        <option value="{{ b }}" {% if filters.battery == b %}selected{% endif %}>{{ b }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <!--
+                Filter generasi prosesor
+                Pilihan diisi dari variabel processor_gens
+            -->
+            <div class="form-group">
+                <label for="processor_gen">Generasi Prosesor</label>
+                <select name="processor_gen" id="processor_gen">
+                    {% for g in processor_gens %}
+                        <option value="{{ g }}" {% if filters.processor_gen == g %}selected{% endif %}>{{ g }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <!--
+                Tombol aksi: Cari Rekomendasi dan Reset Filter
+            -->
+            <div class="form-actions">
+                <button type="submit">Cari Rekomendasi</button>
+                <button type="reset" class="filter-btn">Reset Filter</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
